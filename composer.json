@@ -101,7 +101,8 @@
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "9.4.3",
         "orchestra/testbench": "~3.6.7 || ~3.7.8 || ~3.8.6 || ^4.8 || ^5.2 || ^6.0|| ^8.0",
-        "laravel/dusk": "6.x-dev"
+        "laravel/dusk": "6.x-dev",
+        "nunomaduro/larastan": "0.7.x-dev"
     },
     "autoload": {
         "psr-4": {

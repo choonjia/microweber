@@ -56,6 +56,22 @@ if ($action == 'profile') {
         }
     });
 
+    function generateUserListPDF() {
+        // Choose the element that our invoice is rendered in.
+        var element = document.getElementById('user-list-pdf');
+        var opt = {
+            margin:       0.5,
+            filename:     'UserList.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 1},
+            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+        console.log(element);
+        // Choose the element and save the PDF for our user.
+        var worker = html2pdf().set(opt).from(element).save();
+        console.log(worker);
+    }
+
     function mw_show_users_list() {
         var ui = mw.url.getHashParams(window.location.hash).ui;
 
@@ -209,6 +225,8 @@ mw()->notifications_manager->mark_as_read('users');
             </div>
 
             <div>
+                <a href='javascript:;' onclick="generateUserListPDF()" class="btn btn-outline-secondary icon-left btn-md js-show-filter"><i class="mdi mdi-download-outline"></i><?php _e('Download User List'); ?></a>
+
                 <a href="#" class="btn btn-outline-primary icon-left btn-md js-show-filter" data-toggle="collapse" data-target="#show-filter"><i class="mdi mdi-filter-outline"></i><?php _e('Filter'); ?></a>
 
                 <a href="<?php print admin_url('view:modules/load_module:users/edit-user:0'); ?>" class="btn btn-primary" id="add-new-user-btn">

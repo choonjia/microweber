@@ -67,7 +67,7 @@ $registration_approval_required = get_option('registration_approval_required', '
 
 <?php if (is_array($data)): ?>
     <div class="table-responsive bg-white mw-admin-users-manage-table">
-        <table cellspacing="0" cellpadding="0" class="table table-hover m-0">
+        <table cellspacing="0" cellpadding="0" class="table table-hover m-0" id="user-list-pdf">
             <tbody>
             <?php foreach ($data as $item): ?>
                 <tr id="mw-admin-user-<?php print $item['id']; ?>">
