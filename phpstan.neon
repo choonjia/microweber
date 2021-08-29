@@ -1,0 +1,32 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+    paths:
+        - app
+        - src
+
+    # The level 8 is the highest level
+    level: 2
+
+    bootstrapFiles:
+        - ./vendor/autoload.php
+
+    excludePaths:
+        - %currentWorkingDirectory%/src/MicroweberPackages/*/database/*
+        - %currentWorkingDirectory%/src/MicroweberPackages/*/migrations/*
+        - %currentWorkingDirectory%/src/MicroweberPackages/*/Package/*
+        - %currentWorkingDirectory%/src/MicroweberPackages/*/Order/*
+        - %currentWorkingDirectory%/src/MicroweberPackages/User/*
+        - %currentWorkingDirectory%/src/MicroweberPackages/*/Providers/*
+        - %currentWorkingDirectory%/src/MicroweberPackages/*/tests/*
+        - %currentWorkingDirectory%/src/MicroweberPackages/Utils/*
+        - %currentWorkingDirectory%/src/MicroweberPackages/*/Models/*
+        - %currentWorkingDirectory%/src/MicroweberPackages/*/Helper/*
+        - %currentWorkingDirectory%/src/MicroweberPackages/*/Utils/*
+        - %currentWorkingDirectory%/src/MicroweberPackages/*/Tax/*
+        - %currentWorkingDirectory%/src/MicroweberPackages/*/helpers/*
+        - %currentWorkingDirectory%/src/MicroweberPackages/*/Template/*
+        - %currentWorkingDirectory%/src/MicroweberPackages/*/Http/Controllers/*
+
+    checkMissingIterableValueType: false

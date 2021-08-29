@@ -82,6 +82,17 @@ if (isset($data[0]) == false) {
                     $(this).removeClass('is-invalid')
                 }
             })
+            //to make sure the password is matched with the confrimed password
+            var pass = mw.$('#reset_password');
+            var confirmed_pass = mw.$('#verify_password');
+            console.log(pass, confirmed_pass);
+            if(pass.val() == "" && confirmed_pass == "" && pass.val() != confirmed_pass.val() ){
+                confirmed_pass.addClass('is-invalid');
+                valid = false;
+            }else{
+                confirmed_pass.removeClass('is-invalid');
+            }
+
             return valid;
         }
 
@@ -91,8 +102,10 @@ if (isset($data[0]) == false) {
             }
 
             var val = document.getElementById("reset_password").value.trim();
-            if (!val) {
+            if (val != "") {
+                //if the password is filled 
                 document.getElementById("reset_password").disabled = true;
+                document.getElementById("verify_password").disabled = true;
             }
             var el = document.getElementById('user-save-button');
             mw.form.post(mw.$('#users_edit_<?php echo $usersEditRand; ?>'), '<?php print api_link('save_user') ?>', function (scopeEl) {
@@ -233,7 +246,14 @@ if (isset($data[0]) == false) {
                         <input type="hidden" name="token" value="<?php print csrf_token() ?>" autocomplete="off">
 
                         <div class="d-block">
-                            <small class="d-block text-muted text-center mb-4 mt-2"><?php _e("Fill in the fields to create a new user"); ?></small>
+                            <small class="d-block text-muted text-center mb-4 mt-2"><?php
+                            if($action == "Edit"){
+                                _e("Fill in the fields to edit the user"); 
+                            }else{
+                                _e("Fill in the fields to create a new user"); 
+
+                            }
+                             ?></small>
 
                             <div class="form-group">
                                 <label class="control-label"><?php _e("Username"); ?></label>
