@@ -1,6 +1,5 @@
 FROM php:7.4-apache
 
-
 RUN apt update && apt install -y --no-install-recommends \
         git \
         zip \
@@ -16,7 +15,8 @@ RUN apt update && apt install -y --no-install-recommends \
         libjpeg62-turbo-dev \
         libwebp-dev \
         libpng-dev && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/
+
 
 RUN docker-php-ext-configure gd --with-freetype --with-webp --with-jpeg && \
     docker-php-ext-install gd

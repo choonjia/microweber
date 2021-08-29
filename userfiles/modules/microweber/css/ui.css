@@ -6737,7 +6737,10 @@ html[dir='rtl'] .mw-dialog-close {
   display: table;
   padding: 5px;
   text-align: center;
-  font-size: 12px;
+  font-size: 24px;
+  height: 80px;
+  width: 380px;
+  border-radius: 25px;
 }
 .mw-notification-lite {
   display: block;
@@ -7655,7 +7658,6 @@ body.bup.dragStart.state-element .edit .element:empty {
   padding: 5px;
   min-height: 100px;
   overflow: auto;
-  cursor: auto;
 }
 .mw-editor-frame-area ul:not([class]),
 .mw-editor-area ul:not([class]),

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +28,3 @@ Route::get('test123', function(){
 });*/
 
 // Route::get('favorite-drink', '\App\Http\Controllers\Controller@favoriteDrink');
-

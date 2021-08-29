@@ -12,18 +12,18 @@ matrix:
 os: linux
 # optionally specify a list of environments, for example to test different RDBMS
 env:
-    #Database environment 
     - DB=mysql
 
+services:
+    -docker
+
 before_install:
-#before installing the application, update the application
     - composer self-update
     - composer dump-autoload
 
 # execute any number of scripts before the test run, custom env's are available as variables
 
 before_script:
-#before the script start
     - travis_retry composer install
     - curl -sSfL -o ~/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit https://phar.phpunit.de/phpunit-5.7.phar
 
@@ -43,6 +43,8 @@ notifications:
     email: 
         - leechoonjia0928@gmail.com
         - nitrogens68@gmail.com
+        - yinkiddtan@hotmail.com
+    
 branches:
     only:
         - master
